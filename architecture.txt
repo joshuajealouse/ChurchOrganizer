@@ -1,0 +1,22 @@
+* is mvp
+Microservice backend
+*-Directory
+*	-Holds people and contact info
+*	-Allows for family groups
+-contact service
+	-mass email
+	-text
+*-Scheduler
+*	-Events
+		-Allow for recurrence
+*		-Assign people
+*		-Book equipment and rooms
+*		-Agenda
+			-Integration with 
+				-Ccli
+				-Proclaim
+				-Pro-presenter
+*-ministry groups
+	-chat feature
+
+Angular frontend
