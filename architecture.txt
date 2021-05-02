@@ -1,5 +1,7 @@
 * is mvp
-Microservice backend
+
+*-Api Gateway
+	-handles 
 *-Directory
 *	-Holds people and contact info
 *	-Allows for family groups
@@ -20,3 +22,26 @@ Microservice backend
 	-chat feature
 
 Angular frontend
+Microservice backend
+	Api gateway
+		handles forwarding, and authentication 
+	directory service
+		crud people
+			have id, name, contact, familyid, notes
+		crud family
+			have id, name, type(child(noSelfModification),child(selfModicication), head)
+		all should have granular permissions
+
+	contact service
+		takes list of people and sends inputed message on prefered contact
+			should have fillable text
+
+	scheduler service
+		crud events
+			has schedule, attendees, equipment, rooms
+
+	Building service
+		crud equipment
+		crud rooms
+			
+	groups service
