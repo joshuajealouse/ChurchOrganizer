@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:30470",
-      "sslPort": 44345
+      "applicationUrl": "http://localhost:44631",
+      "sslPort": 44366
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ChurchPlanner": {
+    "Directory.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

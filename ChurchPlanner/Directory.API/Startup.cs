@@ -11,8 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Directory.API.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace ChurchPlanner
+namespace Directory.API
 {
     public class Startup
     {
@@ -26,11 +28,13 @@ namespace ChurchPlanner
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            const string connection = @"Server=db,1433;Database=directory;User=sa;Password=qwertY12@3;";
+            services.AddDbContext<DirectoryContext>(opt => opt.UseSqlServer(connection));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ChurchPlanner", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "Directory.API", Version = "v1"});
             });
         }
 
@@ -41,7 +45,7 @@ namespace ChurchPlanner
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ChurchPlanner v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Directory.API v1"));
             }
 
             app.UseHttpsRedirection();
@@ -50,10 +54,7 @@ namespace ChurchPlanner
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

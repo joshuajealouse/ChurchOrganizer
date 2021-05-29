@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["ChurchPlanner/ChurchPlanner.csproj", "ChurchPlanner/"]
-RUN dotnet restore "ChurchPlanner/ChurchPlanner.csproj"
+COPY ["Directory.API/Directory.API.csproj", "Directory.API/"]
+RUN dotnet restore "Directory.API/Directory.API.csproj"
 COPY . .
-WORKDIR "/src/ChurchPlanner"
-RUN dotnet build "ChurchPlanner.csproj" -c Release -o /app/build
+WORKDIR "/src/Directory.API"
+RUN dotnet build "Directory.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ChurchPlanner.csproj" -c Release -o /app/publish
+RUN dotnet publish "Directory.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ChurchPlanner.dll"]
+ENTRYPOINT ["dotnet", "Directory.API.dll"]
